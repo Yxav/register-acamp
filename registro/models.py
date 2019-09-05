@@ -13,6 +13,7 @@ class Register(models.Model):
     city = models.CharField(max_length=100, verbose_name='igreja')
     email = models.EmailField()
     obs = models.CharField(max_length=500, verbose_name='observação')
+    file = models.FileField(upload_to="media", default='', blank = 'true', verbose_name = 'Autorização dos resṕnsáveis')
     food = models.CharField(max_length=100,default='', blank=True, verbose_name='Restrição Alimentar')
     sleep = models.CharField(max_length=100, verbose_name='Alocação')
 
