@@ -1,0 +1,266 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Alistamento Jovem</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href= " {% static 'css/bootstrap.min.css' %}"  rel="stylesheet">
+
+
+  <!-- Custom fonts for this template -->
+  <link href="{% static 'css/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/grayscale.min.css' %}" rel="stylesheet">
+  <link href="style/styles.css" rel="stylesheet">
+
+
+
+</head>
+
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="{% url 'inicio'%}">ALISTAMENTO JOVEM</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">Por que devo me alistar?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#projects">Ações</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contato">Contato</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Header -->
+
+
+
+<!-- Default form register -->
+
+  <form enctype="multipart/form-data" name = "form" method="POST" class="text-center border border-light p-5" >
+    <!-- Default form register -->
+    {% csrf_token %}
+
+    <div class="alert alert-primary" role="alert">
+      Não esqueça de falar com seu líder e responsável antes da inscrição! Dúvidas ligue (53) 3029-4063 ou Whatsapp (53) 98122-1525.
+    </div>
+
+      <p class="h4 mb-4">Preencha os campos corretamente</p>
+      <div class="form-row mb-4">
+          <div class="col">
+              <!-- First name -->
+              <input type="text" id="first_name" name="first_name" class="form-control"  placeholder="Primeiro nome">
+          </div>
+          <div class="col">
+              <!-- Last name -->
+              <input type="text" id="last_name" name="last_name"  class="form-control" placeholder="Último nome">
+          </div>
+      </div>
+      <!-- Phone number -->
+      <input type="text" id="phone" name="phone"  class="form-control" placeholder="Número de telefone" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+      <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+
+      </small>
+
+  <div class="form-row mb-4">
+    <div class="col">
+      <input type="text" id="age" name="age"  class="form-control mb-4" placeholder="Idade" onchange ="validate()" >
+    </div>
+
+
+  </div>
+
+
+  <div class="alert alert-warning" role="alert">
+  Menores de 18 anos deverão preencher a <a href="https://www.dropbox.com/s/ahbhf30j95gtf9d/mover-autoriza%C3%A7%C3%A3o.docx?dl=0" target="_blank"> autorização</a> tendo assinatura do responsável e deverá ser entregue ao seu líder!
+  </div>
+
+
+
+      <div class="form-row mb-4">
+          <div class="col">
+              <!-- Church -->
+              <input type="text" id="church" name="church"  class="form-control" placeholder="Igreja">
+          </div>
+          <div class="col">
+              <!-- City and District -->
+              <input type="text" id="city" name="city"  class="form-control" placeholder="Cidade-UF">
+          </div>
+      </div>
+
+      <!-- E-mail -->
+      <input type="email" id="email" name="email"  class="form-control mb-4" placeholder="E-mail">
+
+      <div class="form-row mb-4">
+          <div class="col">
+            <div class="fields">
+                    <label>
+                            Soldado(a), deseja dormir em qual lugar?
+                        </label>
+                        <div class="custom-control custom-radio custom-control-inline">
+                          <input type="radio" id="customRadioInline3" name="sleep" class="custom-control-input" onchange="tent()" >
+                          <label class="custom-control-label" for="customRadioInline3">Barraca</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                          <input type="radio" id="customRadioInline4" name="sleep" class="custom-control-input" onchange="accom()">
+                          <label class="custom-control-label" for="customRadioInline4">Alojamento</label>
+                        </div>
+
+                       <!-- <select class="custom-select" id="sleep" name="sleep" >
+                          <option selected>-- Escolha a sua opção --</option>
+                          <option value="1" >Barraca</option>
+                          <option value="2" >Alojamento</option>
+                        <select> -->
+            </div>
+        </div>
+          <div class="col">
+
+          <label> Possui alguma restrição alimentar?</label>
+
+
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" onchange="unckrestri()" >
+              <label class="custom-control-label" for="customRadioInline1">Não</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input" onchange="restrictck()">
+              <label class="custom-control-label" for="customRadioInline2">Sim</label>
+            </div>
+            <div class="col">
+                <input type="text" id="food" name="food" class="form-control" placeholder="Insira sua restrição alimentar" disabled>
+
+            </div>
+          </div>
+      </div>
+      <div class="form-row mb-4">
+        <textarea class="form-control" rows="3" id="obs" name="obs"  placeholder="Qual a sua expectativa para esse retiro?"></textarea>
+      </div>
+
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="confirmalist" onchange="buttoncheck()">
+        <label class="form-check-label" for="defaultCheck1">
+          Confirmo meus dados e quero me alistar!
+        </label>
+    </div>
+      <!-- Sign up button -->
+      <button class="btn btn-info my-4 btn-block" type="submit"  id="buttona" disabled >PRONTO</button>
+
+  </form>
+
+
+
+<!-- Default form register -->
+  <footer class="bg-black small text-center text-white-50">
+    <div class="container">
+      Copyright &copy; Mover Pelotas 2019
+    </div>
+  </footer>
+
+
+
+
+  <!-- Bootstrap core JavaScript -->
+
+  <script type="text/javascript">
+  function restrictck() {
+    document.getElementById('food').disabled = false;
+  }
+
+  function unckrestri() {
+    document.getElementById('food').disabled = true;
+    document.getElementById('food').clean;
+  }
+  function tent() {
+    document.getElementById('customRadioInline4').checked = false;
+    document.getElementById('customRadioInline3').value = 'Barraca';
+
+
+    }
+
+  function accom() {
+    document.getElementById('customRadioInline3').checked = false;
+    document.getElementById('customRadioInline4').value = 'Alojamento';
+
+  }
+
+
+ function validate() {
+   var age = form.age.value;
+
+   if (age < 18)
+   {
+     document.getElementById('age').className = "form-control is-invalid mb-4";
+     alert('É necessário que você preencha a autorização!')
+     document.getElementById('file').required = true;
+
+   }
+
+   if (age >= 18)
+   {
+     document.getElementById('age').className = "form-control is-valid mb-4";
+     document.getElementById('file').required = false;
+
+
+}
+  }
+  function buttoncheck() {
+    var age = form.age.value;
+
+    if (document.getElementById('confirmalist').checked && age >=18)  {
+
+      document.getElementById('buttona').disabled = false;
+
+    }
+    else {
+
+      document.getElementById('buttona').disabled = true;
+
+    }
+  }
+
+    </script>
+
+
+  <script src="{%  static 'jquery/jquery.min.js' %}"></script>
+
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src=" {% static 'jquery-easing/jquery.easing.min.js' %}" ></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'js/grayscale.min.js' %}" ></script>
+
+
+
+
+
+</body>
+
+</html>

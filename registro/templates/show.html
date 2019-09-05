@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Certificado de Recrutamento</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+  <!-- Custom fonts for this template -->
+  <link href="{% static 'css/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href=" {% static 'css/grayscale.min.css' %} " rel="stylesheet">
+
+
+  </head>
+
+
+  <body id="page-top">
+
+
+
+<div class="mx-auto text-center">
+
+  <!-- Default form register -->
+  <h1 class="mx-auto text-uppercase " style="margin-top:35px;">AVANTE SOLDADO(A)!</h1>
+<br>
+    <h3>VOCÊ FOI CONVOCADO(A) PARA UMA GRANDE MISSÃO! SE PREPARE</h3>
+        <p class="h4 mb-4"> </p>
+            <h5>Pedimos a apresentação desse comprovante no dia da apresentação, no Quartel General que você foi designado.</h5>
+            <h6>DADOS PESSOAIS:</h6>
+        <div class=" mt-2  ">
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nome Completo</th>
+              <th scope="col"> {{register.first_name}} {{register.last_name}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Idade</th>
+              <td>{{register.age}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Cidade</th>
+              <td>{{register.city}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Intolerância alimentar</th>
+              <td>{{register.food}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Local de Pernoite</th>
+              <td>{{register.sleep}}</td>
+            </tr>
+
+          </tbody>
+        </table>
+<p>VOCÊ FOI DESIGNADO PARA O SÍTIO CANAÃ, PELOTAS, RIO GRANDE DO SUL!</p>
+<p>DIA E HORÁRIO DA APRESENTAÇÃO: 19/10/19 ÁS 09:30.</p>
+<br><br>
+<p>Para qualquer dúvida entre em contato com seu líder.</p>
+
+
+
+        </div>
+
+  </body>
+</html>
