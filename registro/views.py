@@ -12,17 +12,18 @@ def teste(request):
 def regs(request):
     if request.method == "POST":
         form = RegisterForm(request.POST, request.FILES)
+        form.is_valid()
         if form.is_valid():
             try:
-                form.save()
-                return redirect('/inscricao')
+                register = form.save()
+                return redirect('inscription', register_id=register.id)
             except:
                 pass
     else:
         form = RegisterForm()
     return render(request,'form.html',{'form':form})
 
-def show(request):
-    register = Register.objects.last()
+def show(request, register_id):
+    register = Register.objects.get(pk=register_id)
     registers = {'register':register}
     return render(request, 'show.html', registers)

@@ -28,6 +28,6 @@ urlpatterns = [
     path('recrutamento/', views.regs, name = 'register'),
     path('teste/', views.teste,),
     path('', views.home, name = 'inicio'),
-    path('inscricao', views.show,)
+    path('inscricao/<int:register_id>/', views.show, name='inscription')
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
