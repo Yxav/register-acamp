@@ -243,6 +243,11 @@
       document.getElementById('buttona').disabled = false;
 
     }
+
+    else if (document.getElementById('confirmalist').checked && document.getElementById('file').value) {
+      document.getElementById('buttona').disabled = false;
+        
+    }
     else {
 
       document.getElementById('buttona').disabled = true;
