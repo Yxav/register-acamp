@@ -66,11 +66,7 @@
     <!-- Default form register -->
     {% csrf_token %}
 
-    <div class="alert alert-primary" role="alert">
-      Não esqueça de falar com seu líder e responsável antes da inscrição! Dúvidas ligue (53) 3029-4063 ou Whatsapp (53) 98122-1525.
-    </div>
-
-      <p class="h4 mb-4">Preencha os campos corretamente</p>
+        <p class="h4 mb-4">Preencha os campos corretamente</p>
       <div class="form-row mb-4">
           <div class="col">
               <!-- First name -->
@@ -187,13 +183,33 @@
       Copyright &copy; Mover Pelotas 2019
     </div>
   </footer>
+  
+  
+  
+  <script src= 
+  "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+      </script> 
+
+<script> 
+  $(document).ready(function() { 
+      $("form").submit(function(event) { 
+          event.preventDefault(); 
+          $.ajax({
+          type: 'post',
+          url: $('form').attr('action'),
+          data: $('form').serialize(),
+          success: function(data) {
+              console.log(data);
+          }
+          });
+      }); 
+  }); 
+</script> 
 
 
+<!-- Bootstrap core JavaScript -->
 
-
-  <!-- Bootstrap core JavaScript -->
-
-  <script type="text/javascript">
+<script type="text/javascript">
   function restrictck() {
     document.getElementById('food').disabled = false;
   }
@@ -269,6 +285,8 @@
   <script src="{% static 'js/grayscale.min.js' %}" ></script>
 
 
+
+<!---
 
 
 

@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from registro.forms import RegisterForm
 from .models import Register
@@ -26,4 +27,5 @@ def regs(request):
 def show(request, register_id):
     register = Register.objects.get(pk=register_id)
     registers = {'register':register}
-    return render(request, 'show.html', registers)
+    return JsonResponse({'register': register})
+    # JsonResponse(request, 'show.html', registers)
