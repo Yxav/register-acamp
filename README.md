@@ -1,4 +1,4 @@
-# Jovens-Mover
+# Cadastro-acampamento
 
 
-Sistema de cadastro criado com Django (Python), para um retiro de jovens.  
+Sistema de cadastro criado com Django (Python), para um retiro de jovens, com a temática militar.
