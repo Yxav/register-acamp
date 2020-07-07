@@ -61,7 +61,7 @@ pep8==1.7.1
 pexpect==4.0.1
 Pillow==7.1.1
 plainbox==0.25
-psutil==3.4.2
+psutil==5.6.6
 psycopg2==2.8.5
 psycopg2-binary==2.8.5
 ptyprocess==0.5
