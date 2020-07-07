@@ -9,7 +9,6 @@ class Register(models.Model):
     last_name = models.CharField(max_length=100, verbose_name='ultimo nome')
     phone = models.CharField(max_length=15, default='', blank=True, verbose_name='telefone')
     age =  models.CharField(max_length=2, default='', blank=True, verbose_name='idade')
-    church = models.CharField(max_length=100, verbose_name='igreja')
     city = models.CharField(max_length=100, verbose_name='cidade')
     email = models.EmailField()
     obs = models.CharField(max_length=500, verbose_name='observação')
