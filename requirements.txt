@@ -43,7 +43,7 @@ httplib2==0.18.0
 idna==2.0
 isort==4.3.21
 itsdangerous==0.24
-Jinja2==2.11.2
+Jinja2==2.11.3
 language-selector==0.1
 lazy-object-proxy==1.4.3
 ldap3==1.0.3
